@@ -15,4 +15,8 @@ export class TemarioPage {
     this.materiaSeleccionada = materiasService.materias[0];
   }
 
+  toggleUnidad(unidad) {
+    unidad.mostrar = !unidad.mostrar;
+  }
+
 }

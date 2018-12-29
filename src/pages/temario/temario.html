@@ -1,72 +1,51 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      <ion-title><i>Temario:</i> <strong> {{ materiaSeleccionada.nombre }} </strong></ion-title>
-    </ion-title>
+    <ion-title><i>Temario:</i> <strong> {{ materiaSeleccionada.nombre }} </strong></ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <ion-buttons text-center="">
+    <button ion-button icon-end>
+      Agregar unidad
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-buttons>
 
-  <ion-card *ngFor="let clase of materiaSeleccionada.clases">
-    <ion-card-header>
-      {{ clase.fechaDeInicio }}
+  <ion-card *ngFor="let unidad of materiaSeleccionada.unidades">
+
+    <ion-card-header (click)="toggleUnidad(unidad)">
+      {{ unidad.nombre }}
     </ion-card-header>
 
-    <!--<ion-fab right top>-->
-      <!--<button ion-fab>-->
-        <!--<ion-icon name="pin"></ion-icon>-->
-      <!--</button>-->
-    <!--</ion-fab>-->
+    <div *ngIf="unidad.mostrar">
+      <ion-list>
+        <ion-item-sliding *ngFor="let tema of unidad.temas">
+          <ion-item>
+              <h2>{{ tema.nombre }}</h2>
+              <p>{{ tema.descripcion }}</p>
+          </ion-item>
+          <ion-item-options side="right">
+            <button ion-button>
+              Modificar
+              <ion-icon name="create"></ion-icon>
+            </button>
+            <button ion-button color="danger">
+              Eliminar
+              <ion-icon name="trash"></ion-icon>
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
 
-    <ion-row *ngFor="let actividad of clase.actividades">
-      <ion-col col-2>
-        <ion-icon *ngIf="actividad.tipoDeActividad == 'Examen'" name="clipboard" large></ion-icon>
-        <ion-icon *ngIf="actividad.tipoDeActividad == 'Práctica'" name="bonfire" large></ion-icon>
-        <ion-icon *ngIf="actividad.tipoDeActividad == 'Teoría'" name="book" large></ion-icon>
-          {{ actividad.tipoDeActividad }}
-        <p>
-          <strong>
-            {{ actividad.metodologiaDeEnsenanza.nombre }}
-          </strong>
-        </p>
-      </ion-col>
-      <ion-col col-10>
-        <p *ngFor="let tema of actividad.temas">
-          {{ tema.nombre }}
-        </p>
-      </ion-col>
-    </ion-row>
-
-    <ion-item>
-      <span item-start>
-        Contenido:
-        <strong>
-          {{clase.puntuacionDeClase.puntajeContenido}}
-        </strong>
-      </span>
-      <span item-start>
-        Enseñanza:
-        <strong>
-          {{clase.puntuacionDeClase.puntajeEnsenanza}}
-        </strong>
-      </span>
-      <span item-start>
-        Recursos utilizados:
-        <strong>
-          {{clase.puntuacionDeClase.puntajeRecursosUtilizados}}
-        </strong>
-      </span>
-      <button ion-button icon-start clear item-end>
-        <ion-icon name="chatboxes"></ion-icon>
-        {{ clase.puntuacionDeClase.mensajes.length }}
-      </button>
-    </ion-item>
+      <ion-buttons text-center="">
+        <button ion-button icon-right>
+          Agregar tema
+          <ion-icon name="add"></ion-icon>
+        </button>
+      </ion-buttons>
+    </div>
 
   </ion-card>
-
-  <button ion-button>
-    Planificar próxima clase
-  </button>
 
 </ion-content>
