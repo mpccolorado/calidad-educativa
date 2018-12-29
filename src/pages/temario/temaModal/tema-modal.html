@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Tema</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      Datos del tema
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Nombre</ion-label>
+      <ion-input type="text" [(ngModel)]="temaAuxiliar.nombre"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Descripción</ion-label>
+      <ion-input type="text" [(ngModel)]="temaAuxiliar.descripcion"></ion-input>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <div padding>
+    <button block ion-button color="danger">Cancelar</button>
+    <button block ion-button (click)="aceptar()">Aceptar</button>
+  </div>
+</ion-footer>

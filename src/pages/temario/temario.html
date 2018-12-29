@@ -33,7 +33,7 @@
               <p>{{ tema.descripcion }}</p>
           </ion-item>
           <ion-item-options side="right">
-            <button ion-button>
+            <button ion-button (click)="editarTema(tema)">
               Modificar
               <ion-icon name="create"></ion-icon>
             </button>
@@ -46,7 +46,7 @@
       </ion-list>
 
       <ion-buttons text-center="">
-        <button ion-button icon-right>
+        <button ion-button icon-right (click)="agregarTema(unidad)">
           Agregar tema
           <ion-icon name="add"></ion-icon>
         </button>

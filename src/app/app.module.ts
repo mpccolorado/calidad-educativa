@@ -11,6 +11,7 @@ import { ClasesPage } from '../pages/clases/clases';
 import { TemarioPage } from '../pages/temario/temario';
 import { MetodologiasPage } from '../pages/metodologias/metodologias';
 import { UnidadModal } from '../pages/temario/unidadModal/unidadModal';
+import { TemaModal } from '../pages/temario/temaModal/temaModal';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { UnidadModal } from '../pages/temario/unidadModal/unidadModal';
     MetodologiasPage,
     TemarioPage,
     TabsPage,
-    UnidadModal
+    UnidadModal,
+    TemaModal
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,8 @@ import { UnidadModal } from '../pages/temario/unidadModal/unidadModal';
     MetodologiasPage,
     TemarioPage,
     TabsPage,
-    UnidadModal
+    UnidadModal,
+    TemaModal
   ],
   providers: [
     StatusBar,
