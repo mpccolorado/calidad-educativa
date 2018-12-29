@@ -10,6 +10,7 @@ import { MetodologiasDeEnsenanzaService } from '../services/MetodologiasDeEnsena
 import { ClasesPage } from '../pages/clases/clases';
 import { TemarioPage } from '../pages/temario/temario';
 import { MetodologiasPage } from '../pages/metodologias/metodologias';
+import { UnidadModal } from '../pages/temario/unidadModal/unidadModal';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { MetodologiasPage } from '../pages/metodologias/metodologias';
     ClasesPage,
     MetodologiasPage,
     TemarioPage,
-    TabsPage
+    TabsPage,
+    UnidadModal
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,8 @@ import { MetodologiasPage } from '../pages/metodologias/metodologias';
     ClasesPage,
     MetodologiasPage,
     TemarioPage,
-    TabsPage
+    TabsPage,
+    UnidadModal
   ],
   providers: [
     StatusBar,

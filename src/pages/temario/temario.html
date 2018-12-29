@@ -6,7 +6,7 @@
 
 <ion-content padding>
   <ion-buttons text-center="">
-    <button ion-button icon-end>
+    <button ion-button icon-end (click)="agregarUnidad()">
       Agregar unidad
       <ion-icon name="add"></ion-icon>
     </button>
@@ -14,8 +14,15 @@
 
   <ion-card *ngFor="let unidad of materiaSeleccionada.unidades">
 
-    <ion-card-header (click)="toggleUnidad(unidad)">
-      {{ unidad.nombre }}
+    <ion-card-header>
+      <ion-item>
+        <h2 (click)="toggleUnidad(unidad)">
+          {{ unidad.nombre }}
+        </h2>
+        <button ion-button icon-only item-right clear color="light" (click)="editarUnidad(unidad)">
+          <ion-icon name="md-create"></ion-icon>
+        </button>
+      </ion-item>
     </ion-card-header>
 
     <div *ngIf="unidad.mostrar">
