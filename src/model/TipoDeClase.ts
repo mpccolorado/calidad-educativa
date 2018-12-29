@@ -1,0 +1,5 @@
+export enum TipoDeClase {
+  PRESENCIAL,
+  VIDEOCONFERENCIA,
+  FUERA_DEL_AULA
+}

@@ -1,17 +1,51 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title><i>Temario:</i> <strong> {{ materiaSeleccionada.nombre }} </strong></ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <ion-buttons text-center="">
+    <button ion-button icon-end>
+      Agregar unidad
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-buttons>
+
+  <ion-card *ngFor="let unidad of materiaSeleccionada.unidades">
+
+    <ion-card-header (click)="toggleUnidad(unidad)">
+      {{ unidad.nombre }}
+    </ion-card-header>
+
+    <div *ngIf="unidad.mostrar">
+      <ion-list>
+        <ion-item-sliding *ngFor="let tema of unidad.temas">
+          <ion-item>
+              <h2>{{ tema.nombre }}</h2>
+              <p>{{ tema.descripcion }}</p>
+          </ion-item>
+          <ion-item-options side="right">
+            <button ion-button>
+              Modificar
+              <ion-icon name="create"></ion-icon>
+            </button>
+            <button ion-button color="danger">
+              Eliminar
+              <ion-icon name="trash"></ion-icon>
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+
+      <ion-buttons text-center="">
+        <button ion-button icon-right>
+          Agregar tema
+          <ion-icon name="add"></ion-icon>
+        </button>
+      </ion-buttons>
+    </div>
+
+  </ion-card>
+
 </ion-content>
