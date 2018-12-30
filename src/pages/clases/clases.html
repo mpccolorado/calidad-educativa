@@ -57,9 +57,12 @@
           {{clase.puntuacionDeClase.puntajeRecursosUtilizados}}
         </strong>
       </span>
-      <button ion-button icon-start clear item-end>
+      <span item-start>
         <ion-icon name="chatboxes"></ion-icon>
         {{ clase.puntuacionDeClase.mensajes.length }}
+      </span>
+      <button ion-button clear item-end (click)="mostrarPuntuacionDeClase(clase)">
+        Ver más...
       </button>
     </ion-item>
 

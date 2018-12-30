@@ -39,8 +39,8 @@ export class TemarioPage {
 
   agregarTema(unidad) {
     let temaModal = this.modalCtrl.create(TemaModal, new Tema("", ""));
-    temaModal.onDidDismiss((nuevaTema: Tema) => {
-      unidad.temas.push(nuevaTema);
+    temaModal.onDidDismiss((nuevoTema: Tema) => {
+      unidad.temas.push(nuevoTema);
     });
     temaModal.present();
   }

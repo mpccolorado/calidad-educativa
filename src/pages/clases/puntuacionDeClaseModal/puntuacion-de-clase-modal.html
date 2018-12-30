@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Clase</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      Puntuación de la clase
+    </ion-list-header>
+    <item-puntuacion [valor]="clase.puntuacionDeClase.puntajeContenido" nombre="Contenido"></item-puntuacion>
+    <item-puntuacion [valor]="clase.puntuacionDeClase.puntajeEnsenanza" nombre="Enseñanza"></item-puntuacion>
+    <item-puntuacion [valor]="clase.puntuacionDeClase.puntajeRecursosUtilizados" nombre="Recursos utilizados"></item-puntuacion>
+  </ion-list>
+  <ion-card *ngIf="clase.puntuacionDeClase.mensajes.length > 0">
+    <ion-card-header>
+      Mensajes
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let mensaje of clase.puntuacionDeClase.mensajes">
+          {{ mensaje }}
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+<ion-footer>
+  <div padding>
+    <button block ion-button (click)="aceptar()">Aceptar</button>
+  </div>
+</ion-footer>

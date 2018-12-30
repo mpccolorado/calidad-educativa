@@ -8,10 +8,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { MateriasService } from '../services/MateriasService';
 import { MetodologiasDeEnsenanzaService } from '../services/MetodologiasDeEnsenanzaService';
 import { ClasesPage } from '../pages/clases/clases';
+import { PuntuacionDeClaseModal } from '../pages/clases/puntuacionDeClaseModal/puntuacionDeClaseModal';
 import { TemarioPage } from '../pages/temario/temario';
 import { MetodologiasPage } from '../pages/metodologias/metodologias';
 import { UnidadModal } from '../pages/temario/unidadModal/unidadModal';
 import { TemaModal } from '../pages/temario/temaModal/temaModal';
+import { ItemPuntuacion } from '../pages/clases/puntuacionDeClaseModal/itemPuntuacion';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { TemaModal } from '../pages/temario/temaModal/temaModal';
     TemarioPage,
     TabsPage,
     UnidadModal,
-    TemaModal
+    TemaModal,
+    PuntuacionDeClaseModal,
+    ItemPuntuacion
   ],
   imports: [
     BrowserModule,
@@ -35,7 +39,8 @@ import { TemaModal } from '../pages/temario/temaModal/temaModal';
     TemarioPage,
     TabsPage,
     UnidadModal,
-    TemaModal
+    TemaModal,
+    PuntuacionDeClaseModal
   ],
   providers: [
     StatusBar,
