@@ -10,12 +10,10 @@ import { ClasePage } from '../clase/clasePage';
   templateUrl: 'clases.html'
 })
 export class ClasesPage {
-  materiaSeleccionada: Materia;
 
   constructor(public navCtrl: NavController,
               public materiasService: MateriasService,
               public modalCtrl: ModalController) {
-    this.materiaSeleccionada = materiasService.materias[0];
   }
 
   mostrarPuntuacionDeClase(clase) {
@@ -24,7 +22,7 @@ export class ClasesPage {
   }
 
   planificarProximaClase() {
-    this.navCtrl.push(ClasePage, {materiaSeleccionada: this.materiaSeleccionada})
+    this.navCtrl.push(ClasePage, { materia: this.materiasService.materiaSeleccionada })
   }
 
 }

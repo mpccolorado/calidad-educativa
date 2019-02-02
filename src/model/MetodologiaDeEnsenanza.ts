@@ -1,4 +1,5 @@
 export class MetodologiaDeEnsenanza {
+  id: number;
   nombre: string;
   descripcion: string;
   videoUrl: string;

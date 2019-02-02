@@ -1,14 +1,18 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      <ion-title><i>Temario:</i> <strong> {{ materiaSeleccionada.nombre }} </strong></ion-title>
+      <ion-title><i>Temario:</i> <strong> {{ materiasService.materiaSeleccionada.nombre }} </strong></ion-title>
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
-  <ion-card *ngFor="let clase of materiaSeleccionada.clases">
+  <button ion-button (click)="planificarProximaClase()">
+    Planificar próxima clase
+  </button>
+
+  <ion-card *ngFor="let clase of materiasService.materiaSeleccionada.clases">
     <ion-card-header>
       {{ clase.fechaDeInicio }}
     </ion-card-header>
@@ -25,9 +29,9 @@
         <ion-icon *ngIf="actividad.tipoDeActividad == 'Práctica'" name="bonfire" large></ion-icon>
         <ion-icon *ngIf="actividad.tipoDeActividad == 'Teoría'" name="book" large></ion-icon>
           {{ actividad.tipoDeActividad }}
-        <p>
+        <p *ngFor="let metodologiaDeEnsenanza of actividad.metodologiasDeEnsenanza">
           <strong>
-            {{ actividad.metodologiaDeEnsenanza.nombre }}
+            {{ metodologiaDeEnsenanza.nombre }}
           </strong>
         </p>
       </ion-col>
@@ -67,9 +71,5 @@
     </ion-item>
 
   </ion-card>
-
-  <button ion-button (click)="planificarProximaClase()">
-    Planificar próxima clase
-  </button>
 
 </ion-content>

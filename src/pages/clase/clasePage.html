@@ -8,37 +8,69 @@
 
 <ion-content padding>
 
-  <ion-list>
-    <ion-item>
-      <ion-label>Tipo de clase</ion-label>
-      <ion-select [(ngModel)]="tipoDeClaseSeleccionado" multiple="false" cancelText="Cancelar" okText="Aceptar">
-        <ion-option [value]="TipoDeClase.PRESENCIAL" selected="true">Presencial</ion-option>
-        <ion-option [value]="TipoDeClase.FUERA_DEL_AULA">Fuera del aula</ion-option>
-        <ion-option [value]="TipoDeClase.VIDEOCONFERENCIA">Videconferencia</ion-option>
-      </ion-select>
-    </ion-item>
-  </ion-list>
+  <ion-slides pager>
 
-  <ion-list radio-group *ngIf="tipoDeClaseSeleccionado == TipoDeClase.PRESENCIAL">
-    <ion-list-header>
-      Clase a planificar
-    </ion-list-header>
+    <ion-slide>
+      <h2>Características</h2>
 
-    <ion-item *ngFor="let clase of materiaSeleccionada.clases">
-      <ion-label>{{ clase.fechaDeInicio }}</ion-label>
-      <ion-radio [value]="clase.id">{{ clase.fechaDeInicio }}</ion-radio>
-    </ion-item>
-  </ion-list>
+      <ion-list>
+        <ion-item>
+          <ion-label>Tipo de clase</ion-label>
+          <ion-select [(ngModel)]="tipoDeClaseSeleccionado" multiple="false" cancelText="Cancelar" okText="Aceptar">
+            <ion-option [value]="TipoDeClase.PRESENCIAL" selected="true">Presencial</ion-option>
+            <ion-option [value]="TipoDeClase.FUERA_DEL_AULA">Fuera del aula</ion-option>
+            <ion-option [value]="TipoDeClase.VIDEOCONFERENCIA">Videconferencia</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
 
-  <ion-item *ngIf="tipoDeClaseSeleccionado != TipoDeClase.PRESENCIAL">
-    <ion-label>Fecha de inicio</ion-label>
-    <ion-datetime displayFormat="DD/MM" pickerFormat="DD/MM" [(ngModel)]="fechaDeInicio"></ion-datetime>
-  </ion-item>
+      <ion-list radio-group *ngIf="tipoDeClaseSeleccionado == TipoDeClase.PRESENCIAL">
+        <ion-list-header>
+          Clase a planificar
+        </ion-list-header>
 
-  <ion-item *ngIf="tipoDeClaseSeleccionado != TipoDeClase.PRESENCIAL">
-    <ion-label>Fecha de fin</ion-label>
-    <ion-datetime displayFormat="DD/MM" pickerFormat="DD/MM" [(ngModel)]="fechaDeFin"></ion-datetime>
-  </ion-item>
+        <ion-item *ngFor="let clase of materiasService.materiaSeleccionada.clases">
+          <ion-label>{{ clase.fechaDeInicio }}</ion-label>
+          <ion-radio [value]="clase.id">{{ clase.fechaDeInicio }}</ion-radio>
+        </ion-item>
+      </ion-list>
+
+      <ion-item *ngIf="tipoDeClaseSeleccionado != TipoDeClase.PRESENCIAL">
+        <ion-label>Fecha de inicio</ion-label>
+        <ion-datetime displayFormat="DD/MM" pickerFormat="DD/MM" [(ngModel)]="fechaDeInicio"></ion-datetime>
+      </ion-item>
+
+      <ion-item *ngIf="tipoDeClaseSeleccionado != TipoDeClase.PRESENCIAL">
+        <ion-label>Fecha de fin</ion-label>
+        <ion-datetime displayFormat="DD/MM" pickerFormat="DD/MM" [(ngModel)]="fechaDeFin"></ion-datetime>
+      </ion-item>
+    </ion-slide>
+
+    <ion-slide>
+      <h2>Actividades</h2>
+      <button ion-button (click)="agregarActividad()">
+        Agregar actividad
+      </button>
+
+      <ion-list>
+        <ion-item *ngFor="let actividad of actividades">
+          <ion-icon item-start *ngIf="actividad.tipoDeActividad == TipoDeActividad.TEORIA" name="book"></ion-icon>
+          <ion-icon item-start *ngIf="actividad.tipoDeActividad == TipoDeActividad.PRACTICA" name="bicycle"></ion-icon>
+          <ion-icon item-start *ngIf="actividad.tipoDeActividad == TipoDeActividad.EXAMEN" name="list-box"></ion-icon>
+          <h2>{{ actividad.descripcion }}</h2>
+          <p *ngFor="let metodologia of actividad.metodologiasDeEnsenanza">
+            {{ metodologia.nombre }}
+          </p>
+        </ion-item>
+      </ion-list>
+
+    </ion-slide>
+
+    <ion-slide>
+      <h2>Slide 3</h2>
+    </ion-slide>
+
+  </ion-slides>
 
 
 </ion-content>

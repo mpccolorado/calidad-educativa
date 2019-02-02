@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Temas de la actividad</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-content>
+    <ion-item-group *ngFor="let unidad of materiasService.materiaSeleccionada.unidades">
+      <ion-item-divider color="light">{{ unidad.nombre }}</ion-item-divider>
+      <ion-item *ngFor="let tema of unidad.temas">
+        <ion-label>{{ tema.nombre }}</ion-label>
+        <ion-checkbox checked="false" (ionChange)="toggleSeleccionDeTema(tema)"></ion-checkbox>
+      </ion-item>
+    </ion-item-group>
+  </ion-content>
+</ion-content>
+<ion-footer>
+  <div padding>
+    <button block ion-button (click)="aceptar()">Aceptar</button>
+  </div>
+</ion-footer>

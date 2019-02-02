@@ -1,6 +1,7 @@
 import { Actividad } from './Actividad';
 import { TipoDeClase } from './TipoDeClase';
 import { PuntuacionDeClase } from './PuntuacionDeClase';
+import { Materia } from './Materia';
 
 export class Clase {
   id: Number;
@@ -9,8 +10,10 @@ export class Clase {
   actividades: Actividad[];
   tipoDeClase: TipoDeClase;
   puntuacionDeClase: PuntuacionDeClase;
+  materia: Materia;
 
-  constructor(fechaDeInicio: string, tipoDeClase: TipoDeClase) {
+  constructor(materia: Materia, fechaDeInicio: string, tipoDeClase: TipoDeClase) {
+    this.materia = materia;
     this.fechaDeInicio = fechaDeInicio;
     this.tipoDeClase = tipoDeClase;
     this.actividades = [];

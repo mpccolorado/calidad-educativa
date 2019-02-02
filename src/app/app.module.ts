@@ -15,6 +15,8 @@ import { UnidadModal } from '../pages/temario/unidadModal/unidadModal';
 import { TemaModal } from '../pages/temario/temaModal/temaModal';
 import { ItemPuntuacion } from '../pages/clases/puntuacionDeClaseModal/itemPuntuacion';
 import { ClasePage } from '../pages/clase/clasePage';
+import { ActividadDeClaseModal } from '../pages/clase/actividadModal/actividadDeClaseModal';
+import { SeleccionDeTemasModal } from '../pages/clase/actividadModal/temasModal/seleccionDeTemasModal';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { ClasePage } from '../pages/clase/clasePage';
     UnidadModal,
     TemaModal,
     ClasePage,
+    SeleccionDeTemasModal,
+    ActividadDeClaseModal,
     PuntuacionDeClaseModal,
     ItemPuntuacion
   ],
@@ -42,6 +46,8 @@ import { ClasePage } from '../pages/clase/clasePage';
     TabsPage,
     UnidadModal,
     TemaModal,
+    SeleccionDeTemasModal,
+    ActividadDeClaseModal,
     PuntuacionDeClaseModal,
     ClasePage
   ],
