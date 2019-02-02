@@ -11,6 +11,8 @@ export class ClasePage {
   materiaSeleccionada: Materia;
   TipoDeClase = TipoDeClase;
   tipoDeClaseSeleccionado: TipoDeClase = TipoDeClase.PRESENCIAL;
+  fechaDeInicio: Date;
+  fechaDeFin: Date;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,

@@ -30,5 +30,15 @@
     </ion-item>
   </ion-list>
 
+  <ion-item *ngIf="tipoDeClaseSeleccionado != TipoDeClase.PRESENCIAL">
+    <ion-label>Fecha de inicio</ion-label>
+    <ion-datetime displayFormat="DD/MM" pickerFormat="DD/MM" [(ngModel)]="fechaDeInicio"></ion-datetime>
+  </ion-item>
+
+  <ion-item *ngIf="tipoDeClaseSeleccionado != TipoDeClase.PRESENCIAL">
+    <ion-label>Fecha de fin</ion-label>
+    <ion-datetime displayFormat="DD/MM" pickerFormat="DD/MM" [(ngModel)]="fechaDeFin"></ion-datetime>
+  </ion-item>
+
 
 </ion-content>
