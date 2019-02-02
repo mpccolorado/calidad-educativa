@@ -3,6 +3,7 @@ import { TipoDeClase } from './TipoDeClase';
 import { PuntuacionDeClase } from './PuntuacionDeClase';
 
 export class Clase {
+  id: Number;
   fechaDeInicio: string; //ToDo: cambiar a Date
   fechaDeFin: Date;
   actividades: Actividad[];

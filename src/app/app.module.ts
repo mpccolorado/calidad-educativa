@@ -14,6 +14,7 @@ import { MetodologiasPage } from '../pages/metodologias/metodologias';
 import { UnidadModal } from '../pages/temario/unidadModal/unidadModal';
 import { TemaModal } from '../pages/temario/temaModal/temaModal';
 import { ItemPuntuacion } from '../pages/clases/puntuacionDeClaseModal/itemPuntuacion';
+import { ClasePage } from '../pages/clase/clasePage';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ItemPuntuacion } from '../pages/clases/puntuacionDeClaseModal/itemPuntu
     TabsPage,
     UnidadModal,
     TemaModal,
+    ClasePage,
     PuntuacionDeClaseModal,
     ItemPuntuacion
   ],
@@ -40,7 +42,8 @@ import { ItemPuntuacion } from '../pages/clases/puntuacionDeClaseModal/itemPuntu
     TabsPage,
     UnidadModal,
     TemaModal,
-    PuntuacionDeClaseModal
+    PuntuacionDeClaseModal,
+    ClasePage
   ],
   providers: [
     StatusBar,

@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <ion-title>Clase</ion-title>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>Tipo de clase</ion-label>
+      <ion-select [(ngModel)]="tipoDeClaseSeleccionado" multiple="false" cancelText="Cancelar" okText="Aceptar">
+        <ion-option [value]="TipoDeClase.PRESENCIAL" selected="true">Presencial</ion-option>
+        <ion-option [value]="TipoDeClase.FUERA_DEL_AULA">Fuera del aula</ion-option>
+        <ion-option [value]="TipoDeClase.VIDEOCONFERENCIA">Videconferencia</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <ion-list radio-group *ngIf="tipoDeClaseSeleccionado == TipoDeClase.PRESENCIAL">
+    <ion-list-header>
+      Clase a planificar
+    </ion-list-header>
+
+    <ion-item *ngFor="let clase of materiaSeleccionada.clases">
+      <ion-label>{{ clase.fechaDeInicio }}</ion-label>
+      <ion-radio [value]="clase.id">{{ clase.fechaDeInicio }}</ion-radio>
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>
