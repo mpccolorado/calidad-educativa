@@ -1,0 +1,18 @@
+<ion-row *ngFor="let actividad of actividades">
+  <ion-col col-2>
+    <ion-icon *ngIf="actividad.tipoDeActividad == 'Examen'" name="clipboard" large></ion-icon>
+    <ion-icon *ngIf="actividad.tipoDeActividad == 'Práctica'" name="bonfire" large></ion-icon>
+    <ion-icon *ngIf="actividad.tipoDeActividad == 'Teoría'" name="book" large></ion-icon>
+    {{ actividad.tipoDeActividad }}
+    <p *ngFor="let metodologiaDeEnsenanza of actividad.metodologiasDeEnsenanza">
+      <strong>
+        {{ metodologiaDeEnsenanza.nombre }}
+      </strong>
+    </p>
+  </ion-col>
+  <ion-col col-10>
+    <p *ngFor="let tema of actividad.temas">
+      {{ tema.nombre }}
+    </p>
+  </ion-col>
+</ion-row>

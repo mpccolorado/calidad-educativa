@@ -7,6 +7,7 @@ import { Actividad } from '../../model/Actividad';
 import { TipoDeActividad } from "../../model/TipoDeActividad";
 import { MetodologiasDeEnsenanzaService } from '../../services/MetodologiasDeEnsenanzaService';
 import { MateriasService } from '../../services/MateriasService';
+import { Clase } from '../../model/Clase';
 
 @Component({
   selector: 'page-clase',
@@ -14,6 +15,7 @@ import { MateriasService } from '../../services/MateriasService';
 })
 export class ClasePage {
   materia: Materia;
+  clase: Clase;
   TipoDeClase = TipoDeClase;
   TipoDeActividad = TipoDeActividad;
   tipoDeClaseSeleccionado: TipoDeClase = TipoDeClase.PRESENCIAL;
@@ -26,8 +28,15 @@ export class ClasePage {
               public metodologiasService: MetodologiasDeEnsenanzaService,
               public materiasService: MateriasService,
               public modalCtrl: ModalController) {
-    this.materia = this.navParams.get('materia');
-    this.actividades = [];
+    this.clase = this.navParams.get('clase');
+    this.materia = this.clase.materia;
+    this.actividades = this.clase.actividades;
+  }
+
+  ionViewDidEnter() {
+    if(this.actividades.length == 0) {
+      this.agregarActividad();
+    }
   }
 
   agregarActividad() {

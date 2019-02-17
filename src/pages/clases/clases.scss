@@ -2,4 +2,7 @@ page-clases {
   ion-card-header {
     background-color: #4b9fff;
   }
+  ion-card-header.realizada {
+    background-color: green;
+  }
 }

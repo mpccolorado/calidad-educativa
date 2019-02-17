@@ -40,7 +40,7 @@ export class MateriasService {
 
     this.materias.push(materia);
 
-    const clase1 = new Clase(materia, "01/04/2019", TipoDeClase.PRESENCIAL);
+    const clase1 = new Clase(materia, new Date("04/01/2019"), TipoDeClase.PRESENCIAL);
 
     let actividad1 = new Actividad(null, TipoDeActividad.TEORIA, [metodologiasDeEnsenanzaService.metodologias[0]], null);
     actividad1.temas.push(unidad1.temas[0]);
@@ -61,7 +61,7 @@ export class MateriasService {
 
     materia.clases.push(clase1);
 
-    const clase2 = new Clase(materia, "12/04/2019", TipoDeClase.FUERA_DEL_AULA);
+    const clase2 = new Clase(materia, new Date("04/12/2019"), TipoDeClase.FUERA_DEL_AULA);
 
     actividad1 = new Actividad(null, TipoDeActividad.PRACTICA, [metodologiasDeEnsenanzaService.metodologias[0]], true);
     actividad1.temas.push(unidad1.temas[0]);
@@ -76,7 +76,7 @@ export class MateriasService {
 
     materia.clases.push(clase2);
 
-    const clase3 = new Clase(materia, "12/04/2019", TipoDeClase.PRESENCIAL);
+    const clase3 = new Clase(materia, new Date("04/20/2019"), TipoDeClase.PRESENCIAL);
 
     actividad1 = new Actividad(null, TipoDeActividad.EXAMEN, [metodologiasDeEnsenanzaService.metodologias[0]], true);
     actividad1.temas.push(unidad1.temas[0]);
@@ -89,6 +89,21 @@ export class MateriasService {
     clase3.puntuacionDeClase.puntajeRecursosUtilizados = 3.5;
 
     materia.clases.push(clase3);
+
+    var clase = new Clase(materia, null, TipoDeClase.PRESENCIAL);
+    materia.clases.push(clase);
+    clase = new Clase(materia, null, TipoDeClase.PRESENCIAL);
+    materia.clases.push(clase);
+    clase = new Clase(materia, null, TipoDeClase.PRESENCIAL);
+    materia.clases.push(clase);
+    clase = new Clase(materia, null, TipoDeClase.PRESENCIAL);
+    materia.clases.push(clase);
+    clase = new Clase(materia, null, TipoDeClase.PRESENCIAL);
+    materia.clases.push(clase);
+    clase = new Clase(materia, null, TipoDeClase.PRESENCIAL);
+    materia.clases.push(clase);
+    clase = new Clase(materia, null, TipoDeClase.PRESENCIAL);
+    materia.clases.push(clase);
 
     this.materiaSeleccionada = this.materias[0];
   }

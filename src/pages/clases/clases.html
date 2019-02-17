@@ -8,13 +8,22 @@
 
 <ion-content padding>
 
-  <button ion-button (click)="planificarProximaClase()">
-    Planificar próxima clase
-  </button>
-
   <ion-card *ngFor="let clase of materiasService.materiaSeleccionada.clases">
-    <ion-card-header>
-      {{ clase.fechaDeInicio }}
+    <ion-card-header [class.realizada]="clase.fechaDeInicio != null">
+      <span>
+        {{ "Clase " + (materiasService.materiaSeleccionada.clases.indexOf(clase) + 1)}}
+      </span>
+      <span *ngIf="clase.fechaDeInicio"
+            style="float: right;">
+        <ion-icon name="calendar"></ion-icon>
+        {{ clase.fechaDeInicio | date:"dd/MM"}}
+      </span>
+      <button ion-button
+              *ngIf="!clase.fechaDeInicio"
+              (click)="planificarClase(clase)"
+              style="float: right;">
+        Planificar
+      </button>
     </ion-card-header>
 
     <!--<ion-fab right top>-->
@@ -23,47 +32,30 @@
       <!--</button>-->
     <!--</ion-fab>-->
 
-    <ion-row *ngFor="let actividad of clase.actividades">
-      <ion-col col-2>
-        <ion-icon *ngIf="actividad.tipoDeActividad == 'Examen'" name="clipboard" large></ion-icon>
-        <ion-icon *ngIf="actividad.tipoDeActividad == 'Práctica'" name="bonfire" large></ion-icon>
-        <ion-icon *ngIf="actividad.tipoDeActividad == 'Teoría'" name="book" large></ion-icon>
-          {{ actividad.tipoDeActividad }}
-        <p *ngFor="let metodologiaDeEnsenanza of actividad.metodologiasDeEnsenanza">
-          <strong>
-            {{ metodologiaDeEnsenanza.nombre }}
-          </strong>
-        </p>
-      </ion-col>
-      <ion-col col-10>
-        <p *ngFor="let tema of actividad.temas">
-          {{ tema.nombre }}
-        </p>
-      </ion-col>
-    </ion-row>
+    <actividades [actividades]="clase.actividades"></actividades>
 
-    <ion-item>
+    <ion-item *ngIf="clase.puntuacionDeClase">
       <span item-start>
         Contenido:
         <strong>
-          {{clase.puntuacionDeClase.puntajeContenido}}
+          {{clase.puntuacionDeClase?.puntajeContenido}}
         </strong>
       </span>
       <span item-start>
         Enseñanza:
         <strong>
-          {{clase.puntuacionDeClase.puntajeEnsenanza}}
+          {{clase.puntuacionDeClase?.puntajeEnsenanza}}
         </strong>
       </span>
       <span item-start>
         Recursos utilizados:
         <strong>
-          {{clase.puntuacionDeClase.puntajeRecursosUtilizados}}
+          {{clase.puntuacionDeClase?.puntajeRecursosUtilizados}}
         </strong>
       </span>
       <span item-start>
         <ion-icon name="chatboxes"></ion-icon>
-        {{ clase.puntuacionDeClase.mensajes.length }}
+        {{ clase.puntuacionDeClase?.mensajes.length }}
       </span>
       <button ion-button clear item-end (click)="mostrarPuntuacionDeClase(clase)">
         Ver más...

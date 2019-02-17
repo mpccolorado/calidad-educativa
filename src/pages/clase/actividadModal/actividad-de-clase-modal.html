@@ -14,7 +14,7 @@
       </ion-select>
     </ion-item>
   </ion-list>
-  <ion-item>
+  <ion-item *ngIf="tipoDeActividadSeleccionada != TipoDeActividad.TEORIA">
     <ion-label>Es en grupo</ion-label>
     <ion-toggle [(ngModel)]="grupal"></ion-toggle>
   </ion-item>
