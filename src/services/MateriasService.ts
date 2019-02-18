@@ -8,14 +8,18 @@ import { Actividad } from '../model/Actividad';
 import { TipoDeActividad } from '../model/TipoDeActividad';
 import { MetodologiasDeEnsenanzaService } from './MetodologiasDeEnsenanzaService';
 import { PuntuacionDeClase } from '../model/PuntuacionDeClase';
+import { ProfesoresService } from './ProfesoresService';
 
 @Injectable()
 export class MateriasService {
   materias: Materia[] = [];
   materiaSeleccionada: Materia;
 
-  constructor(private metodologiasDeEnsenanzaService: MetodologiasDeEnsenanzaService) {
+  constructor(private metodologiasDeEnsenanzaService: MetodologiasDeEnsenanzaService,
+              private profesoresService: ProfesoresService) {
     const materia = new Materia("Sistemas y Organizaciones");
+    materia.profesores.push(profesoresService.profesores[0]);
+    materia.profesores.push(profesoresService.profesores[1]);
     const unidad1 = new Unidad("Introducción a los sistemas");
     unidad1.temas.push(new Tema("La teoría general de Sistemas y el Enfoque Sistémico", "Sus aportes, su filosofía y su método"));
     unidad1.temas.push(new Tema("Introducción a los sistemas - metasistema - subsistemas", "Ejemplos, Conceptos e Identificación"));
@@ -42,12 +46,12 @@ export class MateriasService {
 
     const clase1 = new Clase(materia, new Date("04/01/2019"), TipoDeClase.PRESENCIAL);
 
-    let actividad1 = new Actividad(null, TipoDeActividad.TEORIA, [metodologiasDeEnsenanzaService.metodologias[0]], null);
+    let actividad1 = new Actividad(null, TipoDeActividad.TEORIA, [metodologiasDeEnsenanzaService.metodologias[0]], null, []);
     actividad1.temas.push(unidad1.temas[0]);
     actividad1.temas.push(unidad1.temas[1]);
     clase1.actividades.push(actividad1);
 
-    let actividad2 = new Actividad(null, TipoDeActividad.PRACTICA, [metodologiasDeEnsenanzaService.metodologias[1]], true);
+    let actividad2 = new Actividad(null, TipoDeActividad.PRACTICA, [metodologiasDeEnsenanzaService.metodologias[1]], true, []);
     actividad2.temas.push(unidad1.temas[0]);
     actividad2.temas.push(unidad1.temas[1]);
     clase1.actividades.push(actividad2);
@@ -63,7 +67,7 @@ export class MateriasService {
 
     const clase2 = new Clase(materia, new Date("04/12/2019"), TipoDeClase.FUERA_DEL_AULA);
 
-    actividad1 = new Actividad(null, TipoDeActividad.PRACTICA, [metodologiasDeEnsenanzaService.metodologias[0]], true);
+    actividad1 = new Actividad(null, TipoDeActividad.PRACTICA, [metodologiasDeEnsenanzaService.metodologias[0]], true, []);
     actividad1.temas.push(unidad1.temas[0]);
     actividad1.temas.push(unidad1.temas[1]);
     clase2.actividades.push(actividad1);
@@ -78,7 +82,7 @@ export class MateriasService {
 
     const clase3 = new Clase(materia, new Date("04/20/2019"), TipoDeClase.PRESENCIAL);
 
-    actividad1 = new Actividad(null, TipoDeActividad.EXAMEN, [metodologiasDeEnsenanzaService.metodologias[0]], true);
+    actividad1 = new Actividad(null, TipoDeActividad.EXAMEN, [metodologiasDeEnsenanzaService.metodologias[0]], true, []);
     actividad1.temas.push(unidad1.temas[0]);
     actividad1.temas.push(unidad1.temas[1]);
     clase3.actividades.push(actividad1);
@@ -91,7 +95,12 @@ export class MateriasService {
     materia.clases.push(clase3);
 
     var clase = new Clase(materia, null, TipoDeClase.PRESENCIAL);
+    actividad1 = new Actividad(null, TipoDeActividad.PRACTICA, [metodologiasDeEnsenanzaService.metodologias[2]], true, []);
+    actividad1.temas.push(unidad1.temas[0]);
+    actividad1.temas.push(unidad1.temas[1]);
+    clase.actividades.push(actividad1);
     materia.clases.push(clase);
+
     clase = new Clase(materia, null, TipoDeClase.PRESENCIAL);
     materia.clases.push(clase);
     clase = new Clase(materia, null, TipoDeClase.PRESENCIAL);

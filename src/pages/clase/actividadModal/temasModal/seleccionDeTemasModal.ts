@@ -16,7 +16,7 @@ export class SeleccionDeTemasModal {
   }
 
   toggleSeleccionDeTema(tema) {
-    var indexOfTema = this.temas.indexOf(tema)
+    var indexOfTema = this.temas.indexOf(tema);
     if(indexOfTema != -1) {
       this.temas.splice(indexOfTema, 1)
     } else {

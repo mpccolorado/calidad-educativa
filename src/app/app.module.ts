@@ -18,6 +18,10 @@ import { ClasePage } from '../pages/clase/clasePage';
 import { ActividadDeClaseModal } from '../pages/clase/actividadModal/actividadDeClaseModal';
 import { SeleccionDeTemasModal } from '../pages/clase/actividadModal/temasModal/seleccionDeTemasModal';
 import { Actividades } from '../pages/clase/actividad/actividades';
+import { FinalizarClaseModal } from '../pages/clases/finalizarClaseModal/finalizarClaseModal';
+import { SeleccionDeActividades } from '../pages/clase/seleccionDeActividades/seleccionDeActividades';
+import { ProfesoresService } from '../services/ProfesoresService';
+import { ProfesorToggle } from '../pages/clase/profesorToggle/profesorToggle';
 
 @NgModule({
   declarations: [
@@ -30,6 +34,9 @@ import { Actividades } from '../pages/clase/actividad/actividades';
     TemaModal,
     ClasePage,
     Actividades,
+    ProfesorToggle,
+    SeleccionDeActividades,
+    FinalizarClaseModal,
     SeleccionDeTemasModal,
     ActividadDeClaseModal,
     PuntuacionDeClaseModal,
@@ -49,6 +56,9 @@ import { Actividades } from '../pages/clase/actividad/actividades';
     UnidadModal,
     TemaModal,
     Actividades,
+    ProfesorToggle,
+    SeleccionDeActividades,
+    FinalizarClaseModal,
     SeleccionDeTemasModal,
     ActividadDeClaseModal,
     PuntuacionDeClaseModal,
@@ -57,6 +67,7 @@ import { Actividades } from '../pages/clase/actividad/actividades';
   providers: [
     StatusBar,
     SplashScreen,
+    ProfesoresService,
     MateriasService,
     MetodologiasDeEnsenanzaService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

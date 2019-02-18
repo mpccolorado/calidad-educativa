@@ -1,0 +1,9 @@
+<h5>Seleccione los temas que se dieron en clase</h5>
+
+<ion-item-group *ngFor="let actividad of actividades">
+  <ion-item-divider color="light">{{ actividad.tipoDeActividad }}</ion-item-divider>
+  <ion-item *ngFor="let tema of actividad.temas">
+    <ion-label>{{ tema.nombre }}</ion-label>
+    <ion-checkbox checked="true" (ionChange)="toggleSeleccionDeTema(actividad, tema)"></ion-checkbox>
+  </ion-item>
+</ion-item-group>

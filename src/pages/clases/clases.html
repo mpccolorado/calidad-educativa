@@ -20,17 +20,17 @@
       </span>
       <button ion-button
               *ngIf="!clase.fechaDeInicio"
+              (click)="finalizarClase(clase)"
+              style="float: right;">
+        Marcar como finalizada
+      </button>
+      <button ion-button
+              *ngIf="!clase.fechaDeInicio"
               (click)="planificarClase(clase)"
               style="float: right;">
         Planificar
       </button>
     </ion-card-header>
-
-    <!--<ion-fab right top>-->
-      <!--<button ion-fab>-->
-        <!--<ion-icon name="pin"></ion-icon>-->
-      <!--</button>-->
-    <!--</ion-fab>-->
 
     <actividades [actividades]="clase.actividades"></actividades>
 

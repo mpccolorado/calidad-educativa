@@ -7,12 +7,14 @@ import { Tema } from '../../../model/Tema';
 import { SeleccionDeTemasModal } from './temasModal/seleccionDeTemasModal';
 import { MetodologiaDeEnsenanza } from '../../../model/MetodologiaDeEnsenanza';
 import { MetodologiasDeEnsenanzaService } from '../../../services/MetodologiasDeEnsenanzaService';
+import { Materia } from '../../../model/Materia';
 
 @Component({
   selector: 'actividad-de-clase-modal',
   templateUrl: 'actividad-de-clase-modal.html'
 })
 export class ActividadDeClaseModal {
+  materia: Materia;
   actividad: Actividad;
   actividadAuxiliar: Actividad;
   grupal: boolean;
@@ -27,6 +29,7 @@ export class ActividadDeClaseModal {
               public metodologiasService: MetodologiasDeEnsenanzaService,
               public materiasService: MateriasService) {
     this.actividad = this.viewCtrl.data.actividad;
+    this.materia = this.viewCtrl.data.materia;
     this.actividadAuxiliar = Object.assign({}, this.actividad);
     this.tipoDeActividadSeleccionada = TipoDeActividad.TEORIA;
     this.temas = [];

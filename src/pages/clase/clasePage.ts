@@ -40,9 +40,10 @@ export class ClasePage {
   }
 
   agregarActividad() {
-    var nuevaActividad = new Actividad("", TipoDeActividad.TEORIA, [this.metodologiasService.metodologias[0]], false);
+    var nuevaActividad = new Actividad("", TipoDeActividad.TEORIA, [this.metodologiasService.metodologias[0]], false, []);
     let actividadDeClaseModal = this.modalCtrl.create(ActividadDeClaseModal, {
-      actividad: nuevaActividad
+      actividad: nuevaActividad,
+      materia: this.materia
     });
     actividadDeClaseModal.onDidDismiss((actividad: Actividad) => {
       if(actividad) {
