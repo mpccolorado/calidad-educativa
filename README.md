@@ -7,10 +7,9 @@ Los objetivos de este sistema son:
 * Brindar estadísticas sobre los mejores docentes mensuales y poder ver un ranking de los cinco mejores
 * Los alumnos recibirán una notificación con los contenidos de la clase siguiente y en la misma aparecerá contenido útil como: videos explicativos de temas complementarios, breve introducción al tema, recursos necesarios para cada actividad.
 
-![Temario](src/assets/imgs/temario.png) 
-![Planificación](src/assets/imgs/planificación.png) 
-![Nueva actividad](src/assets/imgs/nueva_actividad.png)
-
+<img src="src/assets/imgs/temario.png" width="100">
+<img src="src/assets/imgs/planificación.png" width="100">
+<img src="src/assets/imgs/nueva_actividad.png" width="100">
 
 ToDo:
 * Al marcar una clase como realizada se tiene que poder editar la misma para indicar si se agregaron o eliminar algunos temas, así como también se podría modificar cualquier otra característica de cada actividad.
