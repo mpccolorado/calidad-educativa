@@ -53,4 +53,15 @@ export class ClasePage {
     actividadDeClaseModal.present();
   }
 
+  modificarActividad(actividad: Actividad) {
+    let actividadDeClaseModal = this.modalCtrl.create(ActividadDeClaseModal, {
+      actividad: actividad,
+      materia: this.materia
+    });
+    actividadDeClaseModal.onDidDismiss((actividad: Actividad) => {
+
+    });
+    actividadDeClaseModal.present();
+  }
+
 }

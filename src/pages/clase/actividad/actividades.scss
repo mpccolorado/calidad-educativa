@@ -1,0 +1,11 @@
+actividades {
+  ion-row {
+    margin-left: 6px;
+    margin-right: 6px;
+    border-bottom: 1px solid #c8c8c8;
+  }
+  .editar-actividad,
+  .eliminar-actividad {
+    float: right;
+  }
+}

@@ -17,12 +17,7 @@ export class ActividadDeClaseModal {
   materia: Materia;
   actividad: Actividad;
   actividadAuxiliar: Actividad;
-  grupal: boolean;
-  descripcion: string;
-  tipoDeActividadSeleccionada: TipoDeActividad;
-  metodologiasSeleccionadas: MetodologiaDeEnsenanza[];
   TipoDeActividad = TipoDeActividad;
-  temas: Tema[];
 
   constructor(public viewCtrl: ViewController,
               public modalCtrl: ModalController,
@@ -32,9 +27,6 @@ export class ActividadDeClaseModal {
     this.materia = this.viewCtrl.data.materia;
     this.actividadAuxiliar = Object.assign({}, this.actividad);
     this.tipoDeActividadSeleccionada = TipoDeActividad.TEORIA;
-    this.temas = [];
-    this.metodologiasSeleccionadas = [metodologiasService.metodologias[0]];
-    this.grupal = false;
   }
 
   seleccionarTemas() {
@@ -48,17 +40,11 @@ export class ActividadDeClaseModal {
   }
 
   quitarTema(tema) {
-    var indexOfTema = this.temas.indexOf(tema);
-    this.temas.splice(indexOfTema, 1);
+    var indexOfTema = this.actividadAuxiliar.temas.indexOf(tema);
+    this.actividadAuxiliar.temas.splice(indexOfTema, 1);
   }
 
   aceptar() {
-    this.actividadAuxiliar.descripcion = this.descripcion;
-    this.actividadAuxiliar.tipoDeActividad = this.tipoDeActividadSeleccionada;
-    this.actividadAuxiliar.grupal = this.grupal;
-    this.actividadAuxiliar.temas = this.temas;
-    this.actividadAuxiliar.metodologiasDeEnsenanza = this.metodologiasSeleccionadas;
-
     Object.assign(this.actividad, this.actividadAuxiliar);
     this.viewCtrl.dismiss(this.actividad);
   }

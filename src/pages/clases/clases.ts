@@ -5,7 +5,6 @@ import { MateriasService } from '../../services/MateriasService';
 import { PuntuacionDeClaseModal } from './puntuacionDeClaseModal/puntuacionDeClaseModal';
 import { ClasePage } from '../clase/clasePage';
 import { Clase } from '../../model/Clase';
-import { FinalizarClaseModal } from './finalizarClaseModal/finalizarClaseModal';
 
 @Component({
   selector: 'page-clases',
@@ -28,8 +27,7 @@ export class ClasesPage {
   }
 
   finalizarClase(clase: Clase) {
-    let finalizacionDeClaseModal = this.modalCtrl.create(FinalizarClaseModal, {clase: clase});
-    finalizacionDeClaseModal.present();
+    
   }
 
 }

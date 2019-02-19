@@ -32,7 +32,7 @@
       </button>
     </ion-card-header>
 
-    <actividades [actividades]="clase.actividades"></actividades>
+    <actividades [actividades]="clase.actividades" [puedenModificarse]="!clase.fechaDeInicio"></actividades>
 
     <ion-item *ngIf="clase.puntuacionDeClase">
       <span item-start>

@@ -11,14 +11,14 @@
     </ion-item>
     <ion-item>
       <ion-label>Tipo de actividad</ion-label>
-      <ion-select [(ngModel)]="tipoDeActividadSeleccionada" multiple="false" cancelText="Cancelar" okText="Aceptar">
+      <ion-select [(ngModel)]="actividadAuxiliar.tipoDeActividad" multiple="false" cancelText="Cancelar" okText="Aceptar">
         <ion-option [value]="TipoDeActividad.TEORIA" selected="true">Teoría</ion-option>
         <ion-option [value]="TipoDeActividad.PRACTICA">Práctica</ion-option>
         <ion-option [value]="TipoDeActividad.EXAMEN">Examen</ion-option>
       </ion-select>
     </ion-item>
   </ion-list>
-  <ion-item *ngIf="tipoDeActividadSeleccionada != TipoDeActividad.TEORIA">
+  <ion-item *ngIf="actividadAuxiliar.tipoDeActividad != TipoDeActividad.TEORIA">
     <ion-label>Es en grupo</ion-label>
     <ion-toggle [(ngModel)]="grupal"></ion-toggle>
   </ion-item>
@@ -26,7 +26,7 @@
     Seleccionar temas
   </button>
   <ion-list>
-    <ion-item *ngFor="let tema of temas">
+    <ion-item *ngFor="let tema of actividadAuxiliar.temas">
       {{ tema.nombre }}
       <button ion-button item-end color="light" size="large" (click)="quitarTema(tema)">
         <ion-icon name="close" size="large"></ion-icon>
@@ -36,13 +36,13 @@
   <ion-list>
     <ion-item>
       <ion-label>Descripción</ion-label>
-      <ion-input type="text" [(ngModel)]="descripcion"></ion-input>
+      <ion-input type="text" [(ngModel)]="actividadAuxiliar.descripcion"></ion-input>
     </ion-item>
   </ion-list>
   <ion-list>
     <ion-item>
       <ion-label>Metodología de enseñanza</ion-label>
-      <ion-select [(ngModel)]="metodologiasSeleccionadas" multiple="true" cancelText="Cancelar" okText="Aceptar">
+      <ion-select [(ngModel)]="actividadAuxiliar.metodologiasDeEnsenanza" multiple="true" cancelText="Cancelar" okText="Aceptar">
         <ion-option *ngFor="let metodologia of metodologiasService.metodologias" [value]="metodologia">{{ metodologia.nombre }}</ion-option>
       </ion-select>
     </ion-item>

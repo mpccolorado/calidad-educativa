@@ -18,8 +18,6 @@ import { ClasePage } from '../pages/clase/clasePage';
 import { ActividadDeClaseModal } from '../pages/clase/actividadModal/actividadDeClaseModal';
 import { SeleccionDeTemasModal } from '../pages/clase/actividadModal/temasModal/seleccionDeTemasModal';
 import { Actividades } from '../pages/clase/actividad/actividades';
-import { FinalizarClaseModal } from '../pages/clases/finalizarClaseModal/finalizarClaseModal';
-import { SeleccionDeActividades } from '../pages/clase/seleccionDeActividades/seleccionDeActividades';
 import { ProfesoresService } from '../services/ProfesoresService';
 import { ProfesorToggle } from '../pages/clase/profesorToggle/profesorToggle';
 
@@ -35,8 +33,6 @@ import { ProfesorToggle } from '../pages/clase/profesorToggle/profesorToggle';
     ClasePage,
     Actividades,
     ProfesorToggle,
-    SeleccionDeActividades,
-    FinalizarClaseModal,
     SeleccionDeTemasModal,
     ActividadDeClaseModal,
     PuntuacionDeClaseModal,
@@ -57,8 +53,6 @@ import { ProfesorToggle } from '../pages/clase/profesorToggle/profesorToggle';
     TemaModal,
     Actividades,
     ProfesorToggle,
-    SeleccionDeActividades,
-    FinalizarClaseModal,
     SeleccionDeTemasModal,
     ActividadDeClaseModal,
     PuntuacionDeClaseModal,

@@ -11,6 +11,19 @@
     </p>
   </ion-col>
   <ion-col col-10>
+    <button class="editar-actividad"
+            ion-button
+            *ngIf="puedenModificarse"
+            (click)="modificarActividad.next(actividad)">
+      <ion-icon name="create"></ion-icon>
+    </button>
+    <button class="eliminar-actividad"
+            color="danger"
+            ion-button
+            *ngIf="puedenModificarse"
+            (click)="eliminarActividad.next(actividad)">
+      <ion-icon name="close"></ion-icon>
+    </button>
     <p *ngFor="let tema of actividad.temas">
       {{ tema.nombre }}
     </p>
