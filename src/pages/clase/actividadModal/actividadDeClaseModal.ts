@@ -26,12 +26,11 @@ export class ActividadDeClaseModal {
     this.actividad = this.viewCtrl.data.actividad;
     this.materia = this.viewCtrl.data.materia;
     this.actividadAuxiliar = Object.assign({}, this.actividad);
-    this.tipoDeActividadSeleccionada = TipoDeActividad.TEORIA;
   }
 
   seleccionarTemas() {
     let seleccionDeTemasModal = this.modalCtrl.create(SeleccionDeTemasModal, {
-      temas: this.temas
+      temas: this.actividadAuxiliar.temas
     });
     seleccionDeTemasModal.onDidDismiss((temas: Tema[]) => {
       console.log(temas);

@@ -1,4 +1,4 @@
-<ion-row *ngFor="let actividad of actividades">
+<ion-row *ngFor="let actividad of actividades" dnd-draggable [dragEnabled]="puedenModificarse" [dragData]="actividad">
   <ion-col col-2>
     <ion-icon *ngIf="actividad.tipoDeActividad == 'Examen'" name="clipboard" large></ion-icon>
     <ion-icon *ngIf="actividad.tipoDeActividad == 'Práctica'" name="bonfire" large></ion-icon>

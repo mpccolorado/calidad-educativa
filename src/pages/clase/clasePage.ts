@@ -40,7 +40,8 @@ export class ClasePage {
   }
 
   agregarActividad() {
-    var nuevaActividad = new Actividad("", TipoDeActividad.TEORIA, [this.metodologiasService.metodologias[0]], false, []);
+    var idDeActividad = this.materiasService.getCantidadDeActividades(); //ToDo: temporal
+    var nuevaActividad = new Actividad(idDeActividad, "", TipoDeActividad.TEORIA, [this.metodologiasService.metodologias[0]], false, []);
     let actividadDeClaseModal = this.modalCtrl.create(ActividadDeClaseModal, {
       actividad: nuevaActividad,
       materia: this.materia

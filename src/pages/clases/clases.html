@@ -8,7 +8,10 @@
 
 <ion-content padding>
 
-  <ion-card *ngFor="let clase of materiasService.materiaSeleccionada.clases">
+  <ion-card *ngFor="let clase of materiasService.materiaSeleccionada.clases"
+            dnd-droppable
+            [attr.data-clase-id]="clase.id"
+            (onDropSuccess)="moverActividad($event)">
     <ion-card-header [class.realizada]="clase.fechaDeInicio != null">
       <span>
         {{ "Clase " + (materiasService.materiaSeleccionada.clases.indexOf(clase) + 1)}}
@@ -26,13 +29,18 @@
       </button>
       <button ion-button
               *ngIf="!clase.fechaDeInicio"
-              (click)="planificarClase(clase)"
+              (click)="agregarActividad(clase)"
               style="float: right;">
-        Planificar
+        Agregar actividad
       </button>
     </ion-card-header>
 
-    <actividades [actividades]="clase.actividades" [puedenModificarse]="!clase.fechaDeInicio"></actividades>
+    <div>
+      <actividades [actividades]="clase.actividades"
+                   (modificarActividad)="modificarActividad($event)"
+                   (eliminarActividad)="eliminarActividad($event)"
+                   [puedenModificarse]="!clase.fechaDeInicio"></actividades>
+    </div>
 
     <ion-item *ngIf="clase.puntuacionDeClase">
       <span item-start>

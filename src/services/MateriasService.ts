@@ -44,14 +44,14 @@ export class MateriasService {
 
     this.materias.push(materia);
 
-    const clase1 = new Clase(materia, new Date("04/01/2019"), TipoDeClase.PRESENCIAL);
+    const clase1 = new Clase(1, materia, new Date("04/01/2019"), TipoDeClase.PRESENCIAL);
 
-    let actividad1 = new Actividad(null, TipoDeActividad.TEORIA, [metodologiasDeEnsenanzaService.metodologias[0]], null, []);
+    let actividad1 = new Actividad(1, null, TipoDeActividad.TEORIA, [metodologiasDeEnsenanzaService.metodologias[0]], null, []);
     actividad1.temas.push(unidad1.temas[0]);
     actividad1.temas.push(unidad1.temas[1]);
     clase1.actividades.push(actividad1);
 
-    let actividad2 = new Actividad(null, TipoDeActividad.PRACTICA, [metodologiasDeEnsenanzaService.metodologias[1]], true, []);
+    let actividad2 = new Actividad(2, null, TipoDeActividad.PRACTICA, [metodologiasDeEnsenanzaService.metodologias[1]], true, []);
     actividad2.temas.push(unidad1.temas[0]);
     actividad2.temas.push(unidad1.temas[1]);
     clase1.actividades.push(actividad2);
@@ -65,9 +65,9 @@ export class MateriasService {
 
     materia.clases.push(clase1);
 
-    const clase2 = new Clase(materia, new Date("04/12/2019"), TipoDeClase.FUERA_DEL_AULA);
+    const clase2 = new Clase(2, materia, new Date("04/12/2019"), TipoDeClase.FUERA_DEL_AULA);
 
-    actividad1 = new Actividad(null, TipoDeActividad.PRACTICA, [metodologiasDeEnsenanzaService.metodologias[0]], true, []);
+    actividad1 = new Actividad(3, null, TipoDeActividad.PRACTICA, [metodologiasDeEnsenanzaService.metodologias[0]], true, []);
     actividad1.temas.push(unidad1.temas[0]);
     actividad1.temas.push(unidad1.temas[1]);
     clase2.actividades.push(actividad1);
@@ -80,9 +80,9 @@ export class MateriasService {
 
     materia.clases.push(clase2);
 
-    const clase3 = new Clase(materia, new Date("04/20/2019"), TipoDeClase.PRESENCIAL);
+    const clase3 = new Clase(3, materia, new Date("04/20/2019"), TipoDeClase.PRESENCIAL);
 
-    actividad1 = new Actividad(null, TipoDeActividad.EXAMEN, [metodologiasDeEnsenanzaService.metodologias[0]], true, []);
+    actividad1 = new Actividad(4, null, TipoDeActividad.EXAMEN, [metodologiasDeEnsenanzaService.metodologias[0]], true, []);
     actividad1.temas.push(unidad1.temas[0]);
     actividad1.temas.push(unidad1.temas[1]);
     clase3.actividades.push(actividad1);
@@ -94,26 +94,74 @@ export class MateriasService {
 
     materia.clases.push(clase3);
 
-    var clase = new Clase(materia, null, TipoDeClase.PRESENCIAL);
-    actividad1 = new Actividad(null, TipoDeActividad.PRACTICA, [metodologiasDeEnsenanzaService.metodologias[2]], true, []);
+    var clase = new Clase(4, materia, null, TipoDeClase.PRESENCIAL);
+    actividad1 = new Actividad(5, null, TipoDeActividad.PRACTICA, [metodologiasDeEnsenanzaService.metodologias[2]], true, []);
     actividad1.temas.push(unidad1.temas[0]);
     actividad1.temas.push(unidad1.temas[1]);
     clase.actividades.push(actividad1);
     materia.clases.push(clase);
 
-    clase = new Clase(materia, null, TipoDeClase.PRESENCIAL);
+    clase = new Clase(5, materia, null, TipoDeClase.PRESENCIAL);
     materia.clases.push(clase);
-    clase = new Clase(materia, null, TipoDeClase.PRESENCIAL);
+    clase = new Clase(6, materia, null, TipoDeClase.PRESENCIAL);
     materia.clases.push(clase);
-    clase = new Clase(materia, null, TipoDeClase.PRESENCIAL);
+    clase = new Clase(7, materia, null, TipoDeClase.PRESENCIAL);
     materia.clases.push(clase);
-    clase = new Clase(materia, null, TipoDeClase.PRESENCIAL);
+    clase = new Clase(8, materia, null, TipoDeClase.PRESENCIAL);
     materia.clases.push(clase);
-    clase = new Clase(materia, null, TipoDeClase.PRESENCIAL);
+    clase = new Clase(9, materia, null, TipoDeClase.PRESENCIAL);
     materia.clases.push(clase);
-    clase = new Clase(materia, null, TipoDeClase.PRESENCIAL);
+    clase = new Clase(10, materia, null, TipoDeClase.PRESENCIAL);
     materia.clases.push(clase);
 
     this.materiaSeleccionada = this.materias[0];
+  }
+
+  getCantidadDeActividades() {
+    var cantidad: Number = 0;
+    this.materias.forEach((materia) => {
+      materia.clases.forEach((clase) => {
+        cantidad += clase.actividades.length;
+      });
+    });
+    return cantidad;
+  }
+
+  getActividadPorId(actividadId: Number) {
+    var actividadEncontrada: Actividad = null;
+    this.materias.forEach((materia) => {
+      materia.clases.forEach((clase) => {
+        clase.actividades.forEach((actividad) => {
+          if( actividad.id === actividadId ) {
+            actividadEncontrada = actividad
+          }
+        })
+      });
+    });
+    return actividadEncontrada;
+  }
+
+  getClasePorId(id: Number) {
+    var claseEncontrada: Actividad = null;
+    this.materias.forEach((materia) => {
+      materia.clases.forEach((clase) => {
+        if( clase.id === id ) {
+          claseEncontrada = clase
+        }
+      });
+    });
+    return claseEncontrada;
+  }
+
+  getClaseDeActividad(actividad: Actividad) {
+    var claseEncontrada: Actividad = null;
+    this.materias.forEach((materia) => {
+      materia.clases.forEach((clase) => {
+        if(clase.actividades.indexOf(actividad) != -1) {
+          claseEncontrada = clase;
+        }
+      });
+    });
+    return claseEncontrada;
   }
 }

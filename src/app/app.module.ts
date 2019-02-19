@@ -20,6 +20,7 @@ import { SeleccionDeTemasModal } from '../pages/clase/actividadModal/temasModal/
 import { Actividades } from '../pages/clase/actividad/actividades';
 import { ProfesoresService } from '../services/ProfesoresService';
 import { ProfesorToggle } from '../pages/clase/profesorToggle/profesorToggle';
+import {DndModule} from 'ng2-dnd';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ProfesorToggle } from '../pages/clase/profesorToggle/profesorToggle';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    DndModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [

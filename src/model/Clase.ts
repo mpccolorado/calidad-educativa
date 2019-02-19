@@ -12,7 +12,8 @@ export class Clase {
   puntuacionDeClase: PuntuacionDeClase;
   materia: Materia;
 
-  constructor(materia: Materia, fechaDeInicio: Date, tipoDeClase: TipoDeClase) {
+  constructor(id: Number, materia: Materia, fechaDeInicio: Date, tipoDeClase: TipoDeClase) {
+    this.id = id;
     this.materia = materia;
     this.fechaDeInicio = fechaDeInicio;
     this.tipoDeClase = tipoDeClase;
