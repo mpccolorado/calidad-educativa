@@ -12,5 +12,4 @@ export class MetodologiasPage {
               public metodologiasDeEnsenanzaService: MetodologiasDeEnsenanzaService) {
 
   }
-
 }

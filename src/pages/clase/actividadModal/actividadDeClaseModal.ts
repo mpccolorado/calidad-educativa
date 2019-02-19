@@ -38,6 +38,16 @@ export class ActividadDeClaseModal {
     seleccionDeTemasModal.present();
   }
 
+  seleccionDeProfesorModificada(event: any) {
+    if(event.checked) {
+      this.actividadAuxiliar.profesores.push(event.profesor);
+    }
+    else {
+      var indexOfProfesor = this.actividadAuxiliar.profesores.indexOf(event.profesor);
+      this.actividadAuxiliar.profesores.splice(indexOfProfesor, 1);
+    }
+  }
+
   quitarTema(tema) {
     var indexOfTema = this.actividadAuxiliar.temas.indexOf(tema);
     this.actividadAuxiliar.temas.splice(indexOfTema, 1);

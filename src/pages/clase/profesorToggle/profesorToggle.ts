@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Profesor } from '../../../model/Profesor';
 
 @Component({
@@ -10,10 +10,15 @@ export class ProfesorToggle {
   profesor: Profesor;
   @Input()
   checked: boolean;
+  @Output()
+  selectionToggled: EventEmitter<any>;
 
-  constructor() { }
+  constructor() {
+    this.selectionToggled = new EventEmitter<any>();
+  }
 
   toggleCheck() {
     this.checked = !this.checked;
+    this.selectionToggled.next({profesor: this.profesor, checked: this.checked});
   }
 }

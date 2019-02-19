@@ -21,6 +21,7 @@ import { Actividades } from '../pages/clase/actividad/actividades';
 import { ProfesoresService } from '../services/ProfesoresService';
 import { ProfesorToggle } from '../pages/clase/profesorToggle/profesorToggle';
 import {DndModule} from 'ng2-dnd';
+import { SafePipe } from '../pipes/SafePipe';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {DndModule} from 'ng2-dnd';
     SeleccionDeTemasModal,
     ActividadDeClaseModal,
     PuntuacionDeClaseModal,
-    ItemPuntuacion
+    ItemPuntuacion,
+    SafePipe
   ],
   imports: [
     BrowserModule,

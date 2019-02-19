@@ -1,9 +1,5 @@
 profesor-toggle {
-  ion-img {
-    background: transparent;
-    cursor: pointer;
-  }
-  ion-img:not(.checked) img {
+  img:not(.checked) {
     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
     filter: grayscale(100%);
   }
@@ -13,6 +9,8 @@ profesor-toggle {
     height: 50px;
   }
   img {
+    background: transparent;
+    cursor: pointer;
     vertical-align: middle;
     border-radius: 50%;
   }

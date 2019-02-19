@@ -10,7 +10,12 @@
       </strong>
     </p>
   </ion-col>
-  <ion-col col-10>
+  <ion-col col-2>
+    <img class="imagen-profesor"
+             *ngFor="let profesor of actividad.profesores"
+             [src]="profesor.image">
+  </ion-col>
+  <ion-col col-8>
     <button class="editar-actividad"
             ion-button
             *ngIf="puedenModificarse"

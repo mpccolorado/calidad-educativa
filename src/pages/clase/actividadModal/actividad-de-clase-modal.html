@@ -7,7 +7,11 @@
   <ion-list>
     <ion-item>
       <ion-label>Profesores</ion-label>
-      <profesor-toggle item-end *ngFor="let profesor of materia.profesores" [profesor]="profesor" [checked]="false"></profesor-toggle>
+      <profesor-toggle item-end
+                       *ngFor="let profesor of materia.profesores"
+                       [profesor]="profesor"
+                       (selectionToggled)="seleccionDeProfesorModificada($event)"
+                       [checked]="actividadAuxiliar.profesores.indexOf(profesor) != -1"></profesor-toggle>
     </ion-item>
     <ion-item>
       <ion-label>Tipo de actividad</ion-label>

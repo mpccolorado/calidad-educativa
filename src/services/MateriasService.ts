@@ -117,7 +117,7 @@ export class MateriasService {
     this.materiaSeleccionada = this.materias[0];
   }
 
-  getCantidadDeActividades() {
+  getCantidadDeActividades(): number {
     var cantidad: Number = 0;
     this.materias.forEach((materia) => {
       materia.clases.forEach((clase) => {
@@ -127,7 +127,7 @@ export class MateriasService {
     return cantidad;
   }
 
-  getActividadPorId(actividadId: Number) {
+  getActividadPorId(actividadId: Number): Actividad {
     var actividadEncontrada: Actividad = null;
     this.materias.forEach((materia) => {
       materia.clases.forEach((clase) => {
@@ -141,7 +141,7 @@ export class MateriasService {
     return actividadEncontrada;
   }
 
-  getClasePorId(id: Number) {
+  getClasePorId(id: Number): Clase {
     var claseEncontrada: Actividad = null;
     this.materias.forEach((materia) => {
       materia.clases.forEach((clase) => {
@@ -153,7 +153,7 @@ export class MateriasService {
     return claseEncontrada;
   }
 
-  getClaseDeActividad(actividad: Actividad) {
+  getClaseDeActividad(actividad: Actividad): Clase {
     var claseEncontrada: Actividad = null;
     this.materias.forEach((materia) => {
       materia.clases.forEach((clase) => {

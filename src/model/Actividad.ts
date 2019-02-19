@@ -14,7 +14,7 @@ export class Actividad {
 
   //minimoDeParticipantes, maximo...
 
-  constructor(id: Number, descripcion: string, tipoDeActividad: TipoDeActividad, metodologias: MetodologiaDeEnsenanza[], grupal: boolean, profesores: Profesor[]) {
+  constructor(id: number, descripcion: string, tipoDeActividad: TipoDeActividad, metodologias: MetodologiaDeEnsenanza[], grupal: boolean, profesores: Profesor[]) {
     this.id = id;
     this.descripcion = descripcion;
     this.tipoDeActividad = tipoDeActividad;
